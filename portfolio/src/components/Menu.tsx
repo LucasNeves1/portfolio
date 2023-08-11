@@ -1,10 +1,25 @@
+import Link from "next/link";
+
 export default function Menu() {
+
+    const itemsMenu = [
+        { link: '/home', texto: 'Home' },
+        { link: '/quem-sou-eu', texto: 'Quem sou eu' },
+        { link: '/projetos', texto: 'Projetos' },
+        { link: '/competencias', texto: 'Competências' },
+      ];
+
     return (
-        <div className="flex justify-between">
-            <span><a href="quem-sou-eu">Quem sou eu</a></span>
-            <span><a href="teste">Experiência profissional</a></span>
-            <span><a href="competencias">Competências</a></span>
-            <span><a href="projetos">Projetos</a></span>
-        </div>
+        <>
+            <header>
+                <ul className="flex justify-between">
+                    {itemsMenu.map((item, index) => (
+                        <li key={index}>
+                            <Link href={item.link}>{item.texto}</Link>
+                        </li>
+                    ))}
+                </ul>
+            </header>
+        </>
     )
 }
